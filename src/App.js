@@ -19,8 +19,11 @@ class App extends Component {
     //prevent the default behavior the component when the submit button is clicked.
     const zipcode = e.target.elements.ZipCode.value;
 
-    const api_call = await fetch(`https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&metric=false&zipcode=${zipcode}&oneobservation=true&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg`);
+    const api_call = await fetch(`https://cors-anywhere.herokuapp.com/https://weather.cit.api.here.com/weather/1.0/report.json?product=observation&metric=false&zipcode=${zipcode}&oneobservation=true&app_id=DemoAppId01082013GAL&app_code=AJKnXv84fjrb0KIHawS0Tg`);
+    // https://cors-anywhere.herokuapp.com/ <- proxy server
+    // using the proxy server as medium to make a get request to the api's server, then the proxy applies ALlow-Control-Allow-Origin: * to enable cross-origin requests from anywhere.
     // async await makes api calls much easier...
+
 
     const data = await api_call.json();
     // converts response into json format.
